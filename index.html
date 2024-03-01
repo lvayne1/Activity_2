@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Songs Gathered</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+ 
+</head>
+<body onload="populateTable()">
+    <div class="input-container">
+        <input type="text" onkeyup="search(this.value)" id="inputs" placeholder="Search for a song" autocomplete="off">
+    </div>
+    
+    <div id="tabledisplay"> <table id="display">
+        <thead>
+            <tr>
+                <th> Title Id </th>
+                <th> Title </th>
+                <th> Album </th>
+                <th> Genre </th>
+                <th> Singer One </th>
+                <th> Singer Two </th>
+                <th> Image </th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+        </table>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+           <div id="modalImg"> </div>
+            <span id="closeButton" class="close">x</span>
+        </div>
+    </div>
+
+    <div id="modal2" onclick="if (event.target === this) this.remove();">
+        <div class="modal-content2">
+            <span id="closeButton2">X</span>
+            <img id="modal-image2">
+            <div id="modal-details2">
+                <p><strong>Song Code:</strong> </p>
+                <p><strong>Title:</strong> </p>
+                <p><strong>Album:</strong> </p>
+                <p><strong>Genre:</strong> </p>
+                <p><strong>Singer One:</strong> </p>
+                <p><strong>Singer Two:</strong> </p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+<xml id="xmldata" style="display: none;">
+        <songs>
+        <song code="USEV10900019">
+            <Title>Lucky</Title>
+            <Album>We sing. We dance. We steal things.</Album>
+            <Genre>Reggae, RnB, Indie, and Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Jason Mraz</Singerone>
+            <Singertwo codetwo="2">Colbie Caillat</Singertwo>
+            <ImagePath>
+                <image src="./images/1.png"alt="Song Image"/>
+            </ImagePath>
+        </song>
+        <song code="USUV72102187">
+            <Title>This is how you fall in love</Title>
+            <Album>Brent: live from the internet</Album>
+            <Genre>Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Jeremy Zucker</Singerone>
+            <Singertwo codetwo="2">Chelsea Cutler</Singertwo>
+            <ImagePath>
+                <image src="./images/2.jpeg"alt="Song Image"/>
+            </ImagePath>
+        </song>
+        <song code="GBAHS1900717">
+            <Title>Best Part of Me</Title>
+            <Album>No. 6 Collaborations Project</Album>
+            <Genre>Pop and Hiphop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Ed Sheeran</Singerone>
+            <Singertwo codetwo="2">YEBBA</Singertwo>
+            <ImagePath> <image src="./images/3.png"alt="Song Image"> </ImagePath>
+        </song>
+        <song code="USCJY1231044">
+            <Title>Everything Has Changed</Title>
+            <Album>Red</Album>
+            <Genre>Folk Music and Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Taylor Swift</Singerone>
+            <Singertwo codetwo="2">Ed Sheeran</Singertwo>
+            <ImagePath> <image src="./images/4.png" alt="Song Image"> </ImagePath> 
+            
+        </song>
+        <song code="GBKPL1969288">
+            <Title>Mean It</Title>
+            <Album>How I'm Feeling</Album>
+            <Genre>Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Lauv</Singerone>
+            <Singertwo codetwo="2">Lany</Singertwo>
+            <ImagePath> <image src="./images/5.png"alt="Song Image"> </ImagePath>
+        </song>
+        <song code="USK4W0028151">
+            <Title>Marvin Gaye</Title>
+            <Album>Some Type of Love</Album>
+            <Genre>Doo-wop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Charlie Puth</Singerone>
+            <Singertwo codetwo="2">Meghan Trainor</Singertwo>
+            <ImagePath> <image src="./images/6.jpeg"alt="Song Image"></ImagePath>
+        </song>
+        <song code="GBHMU1500073">
+            <Title>Secret Love Song</Title>
+            <Album>Get Weird</Album>
+            <Genre>Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Little Mix</Singerone>
+            <Singertwo codetwo="2">Jason Derulo</Singertwo>
+            <ImagePath> <image src="./images/7.png" alt="Song Image"> </ImagePath>
+        </song>
+        <song code="USAT22104077">
+            <Title>Here's Your Perfect</Title>
+            <Album>Here's Your Perfect</Album>
+            <Genre>Pop/Rock</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Jamie Miller</Singerone>
+            <Singertwo codetwo="2">Salem Ilese</Singertwo>
+            <ImagePath> <image src="./images/8.jpeg" alt="Song Image"> </ImagePath>
+        </song>
+        <song code="USUM72222487">
+            <Title>I Know What You Did Last Summer</Title>
+            <Album>Handwritten</Album>
+            <Genre>Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Shawn Mendes</Singerone>
+            <Singertwo codetwo="2">Camila Cabello</Singertwo>
+            <ImagePath> <image src="./images/9.png" alt="Song Image"> </ImagePath>
+        </song>
+        <song code="GBAHS2300348">
+            <Title>You and I</Title>
+            <Album>UNHEALTHY</Album>
+            <Genre>Pop</Genre>
+            <Label>Singers:</Label>
+            <Singerone codeone="1">Anne-Marie</Singerone>
+            <Singertwo codetwo="2">Khalid</Singertwo>
+            <ImagePath> <image src="./images/10.jpeg"alt="Song Image"> </ImagePath>
+        </song> 
+    </songs>
+</xml> 
+
+</body>
+</html>
